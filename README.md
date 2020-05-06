@@ -9,7 +9,7 @@
 Yarn 
 Yarn Build
 ``` 
-### After these commannds you are ready to start the demo, which features a small React App with the I think you should use an `@maestro_io/iframe-sdk` installed as a dependency. 
+### After these commannds you are ready to start the demo, which features a small React App with the `@maestro_io/iframe-sdk` installed as a dependency. 
 
 ## React App Implementation
 
@@ -88,7 +88,7 @@ function App() {
   );
 }
 ```
-### This is the the implmentation of the React app included in this repository. Notice that you can dispatch events to the `@maestro_io/iframe-sdk` by creating a new `request:login` event. The Maestro platform, however, also lissens for `request:login` events throuhgout the platform and bubbles those events to the `@maestro_io/iframe-sdk` too. 
+### This is the the implmentation of the React app included in this repository. Notice that you can dispatch events to the `@maestro_io/iframe-sdk` by creating a new `request:login` event. The Maestro platform, however, also listens for `request:login` events throuhgout the platform and bubbles those events to the `@maestro_io/iframe-sdk` too. 
 
 ## Start the App
 ```javascript 
