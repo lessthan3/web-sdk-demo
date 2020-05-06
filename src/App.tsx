@@ -15,17 +15,13 @@ function App() {
   useEffect(() => {
     maestroRef.current = new MaestroIFrameSDK({
       element: parentDiv.current,
-      slug: 'umg-2',
-      urlOverride: `http://localhost.maestro.io:4000`,
+      slug: 'site-slug'/'optional-channel-slug',
     });
+    
     maestroRef.current!.on(EventType.REQUEST_LOGIN, () => {
       // @ts-ignore
       maestroRef.current!.login({
-        email: 'jbanks@yahoo.com',
-        // test jwt here
-        name: 'jacob',
-        service: 'umg',
-        thirdPartyAccountId: 'testId',
+      // account info here
       });
     });
 
