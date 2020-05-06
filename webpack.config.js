@@ -13,7 +13,7 @@ const PATH_ROOT = join(__dirname);
 const PATH_DIST = join(PATH_ROOT, 'dist');
 const PATH_SRC = join(PATH_ROOT, 'src');
 const PATH_NODE_MODULES = join(PATH_ROOT, 'node_modules');
-const PATH_INDEX = join(PATH_SRC, 'index.html');
+const PATH_INDEX = join(PATH_SRC,'index.html');
 
 module.exports = {
   mode: 'development',

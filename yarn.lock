@@ -841,10 +841,10 @@
     prop-types "^15.6.2"
     scheduler "^0.19.0"
 
-"@maestro_io/iframe-sdk@^1.06.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@maestro_io/iframe-sdk/-/iframe-sdk-1.6.0.tgz#d71a82c46da612de2754c470e9c4364517dda2b0"
-  integrity sha512-yRjK5AxQAF7jaI57RN0EEt4VaQ1hoqHIEJFq48Nd3oDVwLBy6X2AHPFbM5dVioL8WDBa3tIEW8yBX31k7i+e2g==
+"@maestro_io/iframe-sdk@^1.08.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@maestro_io/iframe-sdk/-/iframe-sdk-1.8.0.tgz#d3a102e36c27da594c25886659a61fcf35211225"
+  integrity sha512-GU+cYYWr7YrYY0KC37ed2hjvO/xqW/qHMZWO0x/EBkgQ0JUhEX+tJSMIyZFmIYzzaB7WdxCNeBUdJFNavCMKRg==
 
 "@types/anymatch@*":
   version "1.3.1"

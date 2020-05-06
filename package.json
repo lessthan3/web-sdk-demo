@@ -58,6 +58,6 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "write-file-webpack-plugin": "^4.5.1",
-    "@maestro_io/iframe-sdk": "^1.06.0"
+    "@maestro_io/iframe-sdk": "^1.08.0"
   }
 }
