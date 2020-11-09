@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/@maestro_io/iframe-sdk@1.17.0/dist-umd/maestro-iframe-sdk.js"></script>
+</head>
+<body>
+    <div class="page-container">
+      <div id="my-embedded-maestro-platform"></div>
+    </div>
+    <script>
+        const maestro = new MaestroIFrameSDK({
+            element: document.getElementById("my-embedded-maestro-platform"),
+            slug: 'your-slug-here',
+        });
+
+        maestro.on('subscription:required', (event) => {
+          // add event handler
+          console.log(event);
+        });
+
+        maestro.on('locale:change', (event) => {
+          console.log(event);
+        });
+
+        maestro.on('channel:change', async (event) => {
+          console.log(event);
+          const test = await maestro.login({
+            email: 'Tom@yahoo.com',
+            name: 'Tom',
+            service: 'jbanks-test',
+            thirdPartyAccountId: 'TestuId4',
+            // tslint:disable-next-line: max-line-length
+            jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkphY29iIEJhbmtzIiwiZW1haWwiOiJqYmFua3NAbWFlc3Ryby5pbyIsImlhdCI6MTUxNjIzOTAyMn0.B15su6nngz9Q2IVbWqo0YZkcrsw7DTMYQzYdkIak8dc',
+          });
+          console.log(test);
+          const account = await maestro.getUserAccount();
+          console.log(account);
+        });
+
+        maestro.on('request:logout', (event) => {
+          console.log(event);
+        });
+
+        maestro.on('subscription:required', () => {
+          // add event handler
+        });
+
+        // ?auth_service_override=http://localhost:9000/auth/v2
+        maestro.on('request:login', async (event) => {
+          // @ts-ignore
+          console.log(event);
+          const test = await maestro.login({
+            name: userData.name,
+                    service: 'your-service-we-will-give-you',
+                    thirdPartyAccountId: userData.userId,
+                    email: userData.email,
+                    jwt: token // same token decoded to get name, email, and userId
+          });
+          console.log(test);
+          const account = await maestro.getUserAccount();
+          console.log(account);
+        });
+        // render the platform inside the SDK
+        maestro.render(); // this call appends the iframe to the DOM as a child of the div passed into the constructor function. 
+    </script>
+       </div>
+    </body>
+</html>
