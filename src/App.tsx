@@ -1,4 +1,4 @@
-import MaestroIFrameSDK, { EventType } from '@maestro_io/iframe-sdk';
+import MaestroIFrameSDK, { EventType } from '@maestro_io/web-sdk';
 import React, {
   createRef,
   useEffect,
@@ -15,19 +15,48 @@ function App() {
   useEffect(() => {
     maestroRef.current = new MaestroIFrameSDK({
       element: parentDiv.current,
-      slug: 'site-slug'/'optional-channel-slug',
+      slug: 'insert-your-slug'
     });
     
-    maestroRef.current!.on(EventType.REQUEST_LOGIN, () => {
-      // @ts-ignore
-      maestroRef.current!.login({
-      // account info here
-      });
+    maestroRef.current!.on(EventType.SUBSCRIPTION_REQUIRED, (event: any) => {
+      // add event handler
+      console.log(event);
     });
 
-    // render the maestro platform
-    maestroRef.current.render();
+    maestroRef.current!.on(EventType.LOCALE_CHANGE, (event: any) => {
+      console.log(event);
+    });
+
+    maestroRef.current!.on(EventType.CHANNEL_CHANGE, async (event: any) => {
+      console.log(event);
+    });
+
+    maestroRef.current!.on(EventType.REQUEST_LOGOUT, (event: any) => {
+      console.log(event);
+    });
+
+    maestroRef.current!.on(EventType.REQUEST_LOGIN, async (event: any) => {
+      // @ts-ignore
+      console.log(event);
+      const test = await maestroRef.current!.login({
+        email: '',
+        name: '',
+        service: '',
+        thirdPartyAccountId: '',
+        // tslint:disable-next-line: max-line-length
+        jwt: 'insert-jwt'
+      });
+      console.log(test);
+    });
+
+    // render the maestro platform see documentation for view options arg
+    // tslint:disable-next-line: max-line-length
+    maestroRef.current!.render();
+    return () => {
+      maestroRef.current!.logout();
+    };
   });
+
 
   // create event handlers for the login and logout events to dispatch maestro login and logout events
   const handleLoginClick = () => {
